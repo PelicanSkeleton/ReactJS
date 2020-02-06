@@ -1,8 +1,8 @@
 import React from "react";
-import JSXVariables from "./components/JSXVariables";
+import Calculator from "./components/Calculator";
 
 function App() {
-  return <JSXVariables />;
+  return <Calculator />;
 }
 
 export default App;
