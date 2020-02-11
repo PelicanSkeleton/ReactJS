@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import Container from "../../components/Container";
 import Col from "../../components/Col";
 import Row from "../../components/Row";
 
 const Signup = () => {
+  const [userName, setUserName] = useState('');
+  const [userPassword, setPassword] = useState('');
   const handleSubmit = e => {
     e.preventDefault();
+    console.log(`Username: ${userName}`);
+    console.log(`Password: ${userPassword}`);
   };
+
+
 
   return (
     <div>
@@ -17,7 +23,7 @@ const Signup = () => {
         <Container className="mt-3 px-5">
           <Row className="form-group">
             <Col size="12">
-              <input className="form-control" type="text" placeholder="Username" name="username" />
+              <input className="form-control" type="text" placeholder="Username" name="username" onChange={e => setUserName(e.target.value)} />
             </Col>
           </Row>
           <Row className="form-group">
@@ -27,6 +33,7 @@ const Signup = () => {
                 type="password"
                 placeholder="Password"
                 name="password"
+                onChange={e => setPassword(e.target.value)}
               />
             </Col>
           </Row>
@@ -35,8 +42,8 @@ const Signup = () => {
           </button>
         </Container>
         <Container className="mt-4">
-          <h3>Hello NAME_HERE!</h3>
-          <p>I probably shouldn't tell you this, but your password is PASSWORD_HERE}!</p>
+          <h3>Hello { userName }</h3>
+          <p>I probably shouldn't tell you this, but your password is { userPassword }!</p>
         </Container>
       </form>
     </div>
